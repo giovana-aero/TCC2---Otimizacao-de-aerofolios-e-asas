@@ -1,0 +1,20 @@
+PLOP
+G
+
+LOAD coordenadas.dat
+
+OPER
+VISC 1000000.0
+PACC
+polar1.txt
+
+ITER 10
+ALFA 0
+PACC
+PACC
+polar2.txt
+
+ALFA 2
+PACC
+
+QUIT
