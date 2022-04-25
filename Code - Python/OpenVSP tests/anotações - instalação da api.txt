@@ -1,0 +1,139 @@
+
+[27/11/2021]
+meu primeiro teste da api do openvsp foi feito de acordo com o tutorial
+do workshop ( http://openvsp.org/wiki/lib/exe/fetch.php?media=workshop20:openvsp_api_matlab-python_integration.pdf ).
+ - anaconda 5.2.0
+ - openvsp 3.21.2
+a instalação dos pacotes é feita indo pra pasta "python" dentro do 
+diretório do próprio openvsp (ou seja: não é preciso baixar a api 
+separadamente no github, ao contrário do que eu pensei a princípio)
+
+hoje vou tentar pegar a versão mais atualizada de ambos os programas
+e ver se tudo funciona direito
+
+nota: eu marquei a opção de adicionar ao caminho (path) na instalação
+
+a instalação foi bem-sucedida. particularmente, ao invés de executar o
+setup.ps1 (como instruído no readme), eu abri o prompt do anaconda 
+e inseri uma linha de cada vez (depois de já ter mudado o diretório
+pra pasta python do openvsp). 
+
+[30/11/2021]
+por algum motivo eu tive de reinstalar os pacotes do openvsp. dessa vez
+eu intalei pelo arquivo .ps1. (a instalação foi bem-sucedida, mas não é
+possível importar os pacotes por algum motivo)
+os pacotes do openvsp são acessíveis apenas quano o ambiente vsppytools
+está ativo. tudo bem no prompt de comando, mas não consigo carregar
+esse ambiente no spyder e importar os pacotes.
+
+solução:
+- instalar pelo arquivo .ps1 
+- seguir as instruções abaixo pro ambiente vsppytools
+https://stackoverflow.com/questions/30170468/how-to-run-spyder-in-virtual-environment
+
+
+[01/12/2021]
+consegui configurar o spyder ontem pra funcionar no ambiente devido, 
+mas por algum motivo a correção de código parou de funcionar. hoje
+estou tentando reinstalar o anaconda (de novo)
+
+tentei istalar pelo .ps1, mas o powershell, por algum motivo, teve
+um problema na criação do ambiente vsppytools. então desinstalei
+os pacotes do openvsp, e tentei instalar manualmente (abrindo um
+prompt anaconda no diretório referente, e executando cada linha
+descrita no arquivo .ps1)
+depois disso, instalei o spyder no ambiente referente, mas, novamente,
+a correção de código se recusa a funcionar.
+
+vou tentar instalar os pacotes da versão 3.23, que não exigem o uso
+do ambiente.
+a instalação foi bem-sucedida. (a versão instalada foi a -dev, como 
+recomendado naquele workshop)
+nota final: todos os procedimentos, desde a instalação do anaconda à
+instalação dos pacotes, foi feita com permissões de administrador.
+
+
+[08/04/2022]o carregamento de coordenadas de aerofólios nas asas só funciona quando quer
+agora. vou tentar reinstalar a api usando a versão OpenVSP 3.27.1 64-bit Python 3.9
+do openvsp
+não consigo encontrar os pacotes do openvsp, tanto no conda quanto no pip. vou desinstalar
+o anaconda de novo e refazer a reinstalação... de novo 
+
+a instalação da api foi bem sucedida (no entanto, isso não solucionou o problema dos
+aerofólio). segue abaixo o log do powershell como referência:
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+Experimente a nova plataforma cruzada PowerShell https://aka.ms/pscore6
+
+PS C:\WINDOWS\system32> cd 'C:\Users\Guga Weffort\Documents\`[SOFTWARE`]\OpenVSP\python'
+PS C:\Users\Guga Weffort\Documents\[SOFTWARE]\OpenVSP\python> ./setup.ps1
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.10.3
+  latest version: 4.12.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+Downloading and Extracting Packages
+python_abi-3.6       | 4 KB      | ############################################################################ | 100%
+tbb-2021.5.0         | 148 KB    | ############################################################################ | 100%
+pip-21.3.1           | 1.2 MB    | ############################################################################ | 100%
+setuptools-58.0.4    | 959 KB    | ############################################################################ | 100%
+ucrt-10.0.20348.0    | 1.2 MB    | ############################################################################ | 100%
+liblapack-3.9.0      | 5.3 MB    | ############################################################################ | 100%
+wheel-0.37.1         | 31 KB     | ############################################################################ | 100%
+numpy-1.19.5         | 4.9 MB    | ############################################################################ | 100%
+python-3.6.15        | 18.9 MB   | ############################################################################ | 100%
+libblas-3.9.0        | 5.3 MB    | ############################################################################ | 100%
+libcblas-3.9.0       | 5.3 MB    | ############################################################################ | 100%
+intel-openmp-2022.0. | 3.6 MB    | ############################################################################ | 100%
+vc-14.2              | 13 KB     | ############################################################################ | 100%
+mkl-2022.0.0         | 181.9 MB  | ############################################################################ | 100%
+vs2015_runtime-14.29 | 1.3 MB    | ############################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate vsppytools
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Obtaining file:///C:/Users/Guga%20Weffort/Documents/%5BSOFTWARE%5D/OpenVSP/python/utilities (from -r requirements-dev.txt (line 1))
+Obtaining file:///C:/Users/Guga%20Weffort/Documents/%5BSOFTWARE%5D/OpenVSP/python/degen_geom (from -r requirements-dev.txt (line 2))
+Obtaining file:///C:/Users/Guga%20Weffort/Documents/%5BSOFTWARE%5D/OpenVSP/python/openvsp (from -r requirements-dev.txt (line 3))
+Obtaining file:///C:/Users/Guga%20Weffort/Documents/%5BSOFTWARE%5D/OpenVSP/python/CHARM (from -r requirements-dev.txt (line 4))
+Requirement already satisfied: numpy in c:\programdata\anaconda3\lib\site-packages (from utilities==0.1.0->-r requirements-dev.txt (line 1)) (1.20.3)
+Requirement already satisfied: matplotlib in c:\programdata\anaconda3\lib\site-packages (from utilities==0.1.0->-r requirements-dev.txt (line 1)) (3.4.3)
+Requirement already satisfied: scipy in c:\programdata\anaconda3\lib\site-packages (from utilities==0.1.0->-r requirements-dev.txt (line 1)) (1.7.1)
+Requirement already satisfied: pandas in c:\programdata\anaconda3\lib\site-packages (from charm==0.1.0->-r requirements-dev.txt (line 4)) (1.3.4)
+Collecting fortranformat
+  Using cached fortranformat-1.2.0-py3-none-any.whl
+Requirement already satisfied: pyparsing>=2.2.1 in c:\programdata\anaconda3\lib\site-packages (from matplotlib->utilities==0.1.0->-r requirements-dev.txt (line 1)) (3.0.4)
+Requirement already satisfied: python-dateutil>=2.7 in c:\programdata\anaconda3\lib\site-packages (from matplotlib->utilities==0.1.0->-r requirements-dev.txt (line 1)) (2.8.2)
+Requirement already satisfied: pillow>=6.2.0 in c:\programdata\anaconda3\lib\site-packages (from matplotlib->utilities==0.1.0->-r requirements-dev.txt (line 1)) (8.4.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in c:\programdata\anaconda3\lib\site-packages (from matplotlib->utilities==0.1.0->-r requirements-dev.txt (line 1)) (1.3.1)
+Requirement already satisfied: cycler>=0.10 in c:\programdata\anaconda3\lib\site-packages (from matplotlib->utilities==0.1.0->-r requirements-dev.txt (line 1)) (0.10.0)
+Requirement already satisfied: six in c:\programdata\anaconda3\lib\site-packages (from cycler>=0.10->matplotlib->utilities==0.1.0->-r requirements-dev.txt (line 1)) (1.16.0)
+Requirement already satisfied: pytz>=2017.3 in c:\programdata\anaconda3\lib\site-packages (from pandas->charm==0.1.0->-r requirements-dev.txt (line 4)) (2021.3)
+Installing collected packages: utilities, fortranformat, degen-geom, openvsp, charm
+  Running setup.py develop for utilities
+  Running setup.py develop for degen-geom
+  Running setup.py develop for openvsp
+  Running setup.py develop for charm
+Successfully installed charm-0.1.0 degen-geom-0.0.1 fortranformat-1.2.0 openvsp-3.27.1 utilities-0.1.0
+PS C:\Users\Guga Weffort\Documents\[SOFTWARE]\OpenVSP\python>
+
+

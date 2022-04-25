@@ -1,0 +1,26 @@
+***************************************************************************************************************************************************************************************** 
+
+# Name                   Value      Units             
+Sref_                  30.0000000 Lunit^2             
+Cref_                   2.0000000 Lunit               
+Bref_                  16.0000000 Lunit               
+Xcg_                    0.0000000 Lunit               
+Ycg_                    0.0000000 Lunit               
+Zcg_                    0.0000000 Lunit               
+Mach_                   0.0010000 no_unit             
+AoA_                    1.0000000 deg                 
+Beta_                   0.0000000 deg                 
+Rho_                    0.0023770 Munit/Lunit^3       
+Vinf_                 100.0000000 Lunit/Tunit         
+Roll__Rate              0.0000000 rad/Tunit           
+Pitch_Rate              0.0000000 rad/Tunit           
+Yaw___Rate              0.0000000 rad/Tunit           
+
+   Wing       S        Yavg     Chord     V/Vref      Cl        Cd        Cs        Cx        Cy       Cz        Cmx       Cmy       Cmz 
+
+
+
+Comp      Component-Name                             Mach       AoA      Beta       CL        CDi       CS       CFx       CFy       CFz       Cmx       Cmy       Cmz 
+
+
+

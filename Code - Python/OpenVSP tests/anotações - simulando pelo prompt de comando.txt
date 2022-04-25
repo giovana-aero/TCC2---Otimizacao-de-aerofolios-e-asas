@@ -1,0 +1,36 @@
+arquivo .vspaero é o input pra simulação
+
+Arquivos necessários pra cada tipo de simulação (executando pelo
+prompt de comando)
+vortex lattice -> [nome]_DegenGeom.csv
+3D PM -> [nome].tri
+
+é possível fazer simulações por meio do prompt de comando:
+ - abrir um prompt de comando no mesmo diretório que o vspaero.exe
+ - inserir "vspaero [nome]"
+ - os resultados serão gerados no mesmo diretório
+
+
+
+os arquivos gerados pelo vspaero após solucionar um caso são os 
+seguintes:
+- HISTORY -  integrated values as computed by VSPAERO for each iteration
+- LOD - spanwise representation of the local lift, drag, and side force coefficients
+- ADB - (?)
+- STAB - resultados de análise de estabilidade
+- FEM - The FEM file outputs the aerodynamic forces and moments for each span wise station in a wing section
+- 1 - force coefficients
+- POLAR - (é o que diz o nome)
+- TKEY - tem algo a ver com o arquivo .tri
+
+
+
+[03/12/2021]
+- primeiro teste: gerei uma asa na api do python e exportei os 
+  arquivos .vsp3 e .tri. com o arquivo .vsp3 eu simulei no gui, e
+  com o arquivo .tri eu simulei no prompt de comando
+- resultados entre o gui e o prompt de comando são ligeiramente 
+  distintos. minha primeira pista é que seja uma diferença na malha
+- confirmação: é uma diferença na malha. se eu gerar um modelo no 
+  openvsp, simular no gui, pegar os arquivos .tri e .vspaero e simular
+  no prompt de comando, os resultados são idênticos
