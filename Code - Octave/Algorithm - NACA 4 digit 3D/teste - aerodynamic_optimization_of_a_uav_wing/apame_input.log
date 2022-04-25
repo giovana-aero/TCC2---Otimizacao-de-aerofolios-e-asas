@@ -1,0 +1,63 @@
+ Date: 16/04/2022  Time: 13:30
+
+ Reading APAME input file... Done!
+
+     Job name: apame_input
+
+     Total number of panels:       1534
+     ...excluding wake panels:     1508
+
+     KEYWORD values:
+         Airspeed:                 .10000E+03
+         Density:                  .12250E+01
+         Atmospheric pressure:     .10132E+06
+         Mach number:              .00000E+00
+         Wing span:                .13000E+02
+         Mean aerodynamic chord:   .12000E+01
+         Wing surface:             .15600E+02
+         Origin:                   .00000E+00 .00000E+00 .00000E+00
+         Singularity method:       constant source/doublet
+         Error parameter:          .10000E-06
+         Farfield parameter:       .50000E+01
+         Collocation calculation:  approximative
+         Velocity interp. order:   linear
+         Curvature corr. angle:    .17900E+03
+
+     Angles of interest [deg]:
+         Angles of attack:   4.0
+         Sideslip angles:    0.0
+
+ Calculating grid information... Done!
+
+     Time for preprocessing.............................:   0.063 s
+
+ Calculating influence coefficients... Done!
+
+     Time for calculating influence coefficients........:   0.129 s
+
+ Calculating right-hand side... Done!
+
+     Time for calculating right-hand side...............:   0.008 s
+
+ Solving system of equations... Done!
+
+     Time for solving system of equations...............:   0.070 s
+
+ Postprocessing... Done!
+
+     Time for postprocessing............................:   0.125 s
+
+     Coefficients in body reference frame:
+              CX      CY      CZ      CL      CM      CN
+          0.0432  0.0002  0.5312  0.0285 -0.2005 -0.0010
+
+     Coefficients in aerodynamic reference frame:
+              CD      CK      CL
+          0.0801  0.0002  0.5269
+
+ Writing results file... Done!
+
+     Time for writing results file......................:   0.004 s
+
+ Job complete!
+

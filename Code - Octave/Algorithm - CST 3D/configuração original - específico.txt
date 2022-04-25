@@ -1,0 +1,100 @@
+% Parâmetros do algoritmo
+dat.N = 200;                              % Número de indivíduos na população
+dat.mu = 0.05;                           % Probabilidade de mutação (definida entre zero e um)
+dat.iter = 5;                           % Número de iterações
+dat.elite = 1;                         % Aplicar elitismo?
+dat.subs = 1;                          % Substituir asas sem resultados? (ver ainda se isto será necessário)
+dat.aero_M = zeros(dat.iter,4);  % [Tirar isto depois] (e apagar a função make_vector também)
+
+% Dados da asa a ser otimizada
+% Planta
+dat.half = 0; % Considerar apenas metade da asa? (se sim, dat.half = 1)
+dat.type = 0; % (0 -> trapezoidal simples, 1 -> trapezoidal dupla) 
+dat.or_b = 10;
+dat.or_b1 = 10;
+dat.or_c_r = 2.8022;
+dat.or_c_m = 2;
+dat.or_c_t = 1.7282;
+% Aerofólio da raiz
+dat.or_v_ex_r = [0.003634, 0.076556, 0.076217, 0.066127, 4.095403, 0.000630];
+dat.or_v_in_r = [0.003634, 0.076556, 0.076217, 0.066127, 4.095403, 0.000630];
+dat.symm_override_r = 0;
+% Aerofólio do meio
+dat.or_v_ex_m = [0.01, 0.2, 0.2, 0.1, 10, 0];
+dat.or_v_in_m = [0.01, 0.1, 0.1, 0.1, 10, 0];
+dat.symm_override_m = 0;
+% Aerofólio da ponta
+dat.or_v_ex_t = [0.003634, 0.076556, 0.076217, 0.066127, 4.095403, 0.000630];
+dat.or_v_in_t = [0.003634, 0.076556, 0.076217, 0.066127, 4.095403, 0.000630];
+dat.symm_override_t = 0;
+dat.or_tw_t = 0;
+
+% Parâmetros da geometria: planta da asa
+%dat.planf_op = 0.5; % Proporção de asas trapezoidais simples e bitrapezoidais (0->todas trapezoidais simples, 1->todas bitrapezoidais)
+dat.b_ext = [-1,1,5]; % Envergadura completa [m] (limite inferior, valor mínimo possível)
+dat.b1_ext = [-0.2,0.2,1,0.5]; % Envergadura da raiz ao meio [m] (asas bitrapezoidais apenas) (valor mínimo,valor máximo,valor mínimo possível,separação mínima da ponta da asa (considerando apenas uma metade)) 
+dat.c_r_ext = [-0.2,0.2,0.5]; % Corda da raiz [m] (limite inferior, valor mínimo possível)
+dat.c_m_ext = [-0.2,0.2,0.5]; % Corda do meio [m] (asas bitrapezoidais apenas) (limite inferior, limite superior, valor mínimo possível) (a opção 'L' força o formato trapezoidal simples)
+dat.c_t_ext = [-0.2,0.2,0.5]; % Corda da ponta [m] (limite inferior, valor mínimo possível)
+dat.sweep_ext = [-5,5]; % Enflechamento de asas trapezoidais simples (opção 'Z' faz com que a linha c/2 tenha enflechamento zero)
+dat.sweep1_ext = [-5,5]; % Enflechamento da primeira seção de asas trapezoidais duplas (opção 'Z' faz com que a linha c/2 tenha enflechamento zero)
+dat.sweep2_ext = [-5,5]; % Enflechamento da segunda seção de asas trapezoidais duplas (opção 'Z' faz com que a linha c/2 tenha enflechamento zero)
+% Parâmetros da geometria: aerofólio da raiz
+dat.BPn_r = length(dat.or_v_ex_r)-2;                  % Grau do polinômio de Bernstein (número de variáveis de design = BPn+1 mais o delta_z)
+dat.N1_r = 0.5;
+dat.N2_r = 1;
+dat.le_R_ext1_r = [-0.01,0.01,0.005]; % Limite inferior, limite superior, valor mínimo possível (pois Rle > 0)
+dat.le_R_ext2_r = [-0.01,0.01,0.005];
+dat.A_ext1_r = [-0.1,0.1];
+dat.A_ext2_r = [-0.1,0.1];
+dat.B_ext1_r = [-5,5]; % Limites inferior e superior
+dat.B_ext2_r = [dat.or_v_ex_r(end-1) + dat.or_v_in_r(end-1),10]; % O primeiro número é a separação mínima do extradorso, o segundo é o limite superior
+% Parâmetros da geometria: aerofólio do meio (asas bitrapezoidais apenas) 
+dat.BPn_m = length(dat.or_v_ex_m)-2;                  % Grau do polinômio de Bernstein (número de variáveis de design = BPn+1 mais o delta_z)
+dat.N1_m = 0.5;
+dat.N2_m = 1;
+dat.le_R_ext1_m = [-0.01,0.01,0.005]; % (admite opção 'L')
+dat.le_R_ext2_m = [-0.01,0.01,0.005];
+dat.A_ext1_m = [-0.1,0.1];
+dat.A_ext2_m = [-0.1,0.1];
+dat.B_ext1_m = [-5,5]; % Limites inferior e superior
+dat.B_ext2_m = [dat.or_v_ex_m(end-1) + dat.or_v_in_m(end-1),10]; % O primeiro número é a separação mínima do extradorso, o segundo é o limite superior
+% Parâmetros da geometria: aerofólio da ponta
+dat.BPn_t = length(dat.or_v_ex_t)-2;                  % Grau do polinômio de Bernstein (número de variáveis de design = BPn+1 mais o delta_z)
+dat.N1_t = 0.5;
+dat.N2_t = 1;
+dat.le_R_ext1_t = [-0.01,0.01,0.005]; 
+dat.le_R_ext2_t = [-0.01,0.01,0.005];
+dat.A_ext1_t = [-0.1,0.1];
+dat.A_ext2_t = [-0.1,0.1];
+dat.B_ext1_t = [-5,-5]; % Limites inferior e superior
+dat.B_ext2_t = [dat.or_v_ex_t(end-1) + dat.or_v_in_t(end-1),10]; % O primeiro número é a separação mínima do extradorso, o segundo é o limite superior
+dat.tw_t_ext = [-1,0];
+
+% Torção geométrica
+dat.tw_t_ext_in = [-1,1]; % Torção geométrica [°]
+
+% Parâmetros da malha
+dat.np = 30; % Número de pontos na geração de ordenadas nos aerofólios
+dat.np_op = 1; % 1 -> cosspace, 0 -> cosspace_half
+dat.nb = [1,1]; % Número de seções intermediárias (raiz/ponta) [número de seções,0] ou [concentração por metro,1]
+dat.nb1 = 'L'; % Número de seções intermediárias (raiz/meio) (asas bitrapezoidais apenas) (opção 'L' faz com que nb1 e nb2 sejam uniformemente determinados ao longo da envergadura)
+dat.nb2 = []; % Número de seções intermediárias (meio/ponta) (asas bitrapezoidais apenas)
+
+% Parâmetros das simulações
+dat.cases = 1;                          % Número de condições de voo a serem analisadas
+dat.v_ref = [100,100,100]; % Velocidades de referência [m/s] 
+dat.rho = [1.225,1.225,1.225]; % Densidades do ar [kg/m^3] 
+dat.p_atm = [101325,101325,101325]; % Pressões do ar [Pa] (irrelevante neste algoritmo)
+dat.mach = [0.6,1.5,0.]; % Números de Mach
+dat.reynolds = [1e6,1e6,1e6];           % Valores dos números de Reynolds para as simulações (irrelevante neste algoritmo))
+dat.aoa = [2,0,4];                     % Ângulos de ataque
+dat.coeff_op = ['!','!','^','!';       % Uma linha para cada condição de voo
+                '!','!','!','!';
+                '!','!','!','!'];
+dat.coeff_val = [0.5,7e-3,90,-1e-1;
+                 0.5,0,0,-0.08;
+                 0,0,0,-0.08];
+dat.coeff_F = [1,1,1,1;
+               1,1,1,1;
+               1,1,1,1];
