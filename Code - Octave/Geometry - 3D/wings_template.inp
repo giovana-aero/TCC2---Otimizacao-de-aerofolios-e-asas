@@ -1,0 +1,94 @@
+APAME input file
+VERSION 3.1
+
+
+# FLOW PARAMETERS
+
+# airspeed                  [m/s]
+AIRSPEED 100
+# air density               [kg/m^3]
+DENSITY 1.225
+# atmospheric pressure      [Pa]
+PRESSURE 101325
+# prandtl-glauert correction:
+#   0-no correction
+#   *-Mach number
+MACH 0
+# number of cases
+# angles of attack          [degrees]
+# sideslip angles           [degrees]
+CASE_NUM 1
+5
+0
+
+# REFERENCE VALUES
+
+# wing span                 [m]
+WINGSPAN 10
+# mean aerodynamic chord    [m]
+MAC 1
+# wing surface              [m^2]
+SURFACE 10
+# reference point           [m]
+ORIGIN *
+0 0 0
+
+
+# SOLVER PARAMETERS
+
+# singularity method:
+#   0-constant source/doublet
+#   1-constant doublet
+METHOD 0
+# error
+ERROR 0.0000001
+# collocation point depth
+COLLDIST 0.0000001
+# "far field" coefficient
+FARFIELD 5
+# collocation point calculation:
+#   0-approximative
+#   1-accurate
+COLLCALC 0
+# interpolation method/order for velocity calculations:
+#   0-nodal
+#   1-first
+#   2-second
+VELORDER 1
+
+
+# RESULT REQUESTS
+#   0-no
+#   1-yes
+RESULTS 1
+#  1 coefficients
+RES_COEF 1
+#  2 forces
+RES_FORC 0
+#  3 geometry
+RES_GEOM 0
+#  4 velocity
+RES_VELO 1
+#  5 pressure
+RES_PRES 1
+#  6 center points
+RES_CENT 0
+#  7 dipole values
+RES_DOUB 1
+#  8 source values
+RES_SORC 1
+#  9 velocity components
+RES_VELC 1
+# 10 mesh characteristics
+RES_MESH 0
+# 11 static pressure
+RES_STAT 0
+# 12 dynamic pressure
+RES_DYNA 0
+# 13 manometer pressure
+RES_MANO 1
+
+
+# GEOMETRY
+
+# x y z                     [m]
