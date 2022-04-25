@@ -1,0 +1,19 @@
+PLOP
+G
+
+NACA 1129
+OPER
+VISC 1000000.0
+PACC
+polar0.txt
+
+ITER50
+ALFA 0
+PACC
+PACC
+polar1.txt
+
+ALFA 2
+PACC
+
+QUIT
