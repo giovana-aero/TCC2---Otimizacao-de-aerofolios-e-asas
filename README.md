@@ -13,4 +13,4 @@ Há alguns aspectos destes códigos que eu não pude testar completamente, porta
 
 A ser alterado:
 * Adicionar uma forma de mudar o número de Mach nos algoritmos 2D (XFOIL)
-* Adicionar uma forma de alterar o ponto de referência para o cálculo do CM - no XFOIL isso é feito com o comando XYCM; no APAME é preciso transladar a geometria em relação à origem
+* Adicionar uma forma de alterar o ponto de referência para o cálculo do CM - no XFOIL isso é feito com o comando XYCM; no APAME é preciso transladar a geometria em relação à origem; no VSPAERO específicas para isso
