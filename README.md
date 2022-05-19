@@ -9,3 +9,8 @@ Os executáveis relevantes do XFOIL, do APAME e do VSPAERO já estão inclusos n
 Há alguns aspectos destes códigos que eu não pude testar completamente, portanto, podem me avisar sobre erros, e eu corrigirei.
 
 << Autor: Gustavo Weffort Fernandes >>
+
+
+A ser alterado:
+* Adicionar uma forma de mudar o número de Mach nos algoritmos 2D (XFOIL)
+* Adicionar uma forma de alterar o ponto de referência para o cálculo do CM - no XFOIL isso é feito com o comando XYCM; no APAME é preciso transladar a geometria em relação à origem
