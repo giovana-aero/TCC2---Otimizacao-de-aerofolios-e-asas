@@ -179,7 +179,7 @@ def fitness_naca4_3D(pop,dat,select2):
                         else: # Se o M for maior que o M alvo
                             pop[i].score += M_pop/Mtgt*F3
                             
-        # Funções objetivas c e k para o coeficiente de momento
+        # Funções objetivo c e k para o coeficiente de momento
         if dat.coeff_op[0,3] == 'c' or dat.coeff_op[0,3] == 'k':
             for i in select2:
                 temp = 0
