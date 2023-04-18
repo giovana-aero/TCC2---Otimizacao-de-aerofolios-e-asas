@@ -8,7 +8,7 @@ from numpy import floor,repeat
 def error_check_cst_TCC2(dat,op=1):
 
     if dat.N%2 != 0:
-        warn('Tamanho da população deve ser par. O valor inserido srá alterado');sleep(5)
+        warn('Tamanho da população deve ser par. O valor inserido será alterado');sleep(5)
         dat.N += 1
 
     if dat.N1 != 0.5 or dat.N2 != 1:
@@ -43,17 +43,17 @@ def error_check_cst_TCC2(dat,op=1):
             dat.iter_sim[i] = 10
     
     if dat.coeff_op.shape[0] < dat.cases or dat.coeff_val.shape[0] < dat.cases or dat.coeff_F.shape[0] < dat.cases:
-        raise TypeError('Configurações das funções objetivas são insuficientes para todas as condições de voo')
+        raise TypeError('Configurações das funções objetivo são insuficientes para todas as condições de voo')
         
     if 'c' in dat.coeff_op[:,0:3] or 'k' in dat.coeff_op[:,0:3]:
-        raise TypeError('Funções objetivas c e k valem apenas para o coeficiente de momento')
+        raise TypeError('funções objetivo c e k valem apenas para o coeficiente de momento')
     
     if dat.cases == 1 and dat.coeff_op[0,3] == 'c' or dat.cases == 1 and dat.coeff_op[0,3] == 'k':
-        warn('Função objetiva c/k vale apenas para múltiplas condições de voo. A mesma será ignorada')
+        warn('função objetivo c/k vale apenas para múltiplas condições de voo. A mesma será ignorada')
         dat.coeff_op[0,3] = '!'; sleep(5)
     
     if sum(sum(dat.coeff_op=='!')) == dat.coeff_op.size:
-        raise TypeError('Ao menos uma das funções objetivas deve estar ativa')
+        raise TypeError('Ao menos uma das funções objetivo deve estar ativa')
 
     if op == 2: # Válida apenas pro algoritmo específico
         if dat.or_v_ex[dat.BPn] + dat.B_ext2[1] < dat.B_ext2[0]:
@@ -78,18 +78,18 @@ def error_check_cst_TCC2(dat,op=1):
     if dat.cases > 1:
         for i in range(1,dat.cases):
             if sum(dat.coeff_op[i,:] == '!') == 4 and dat.coeff_op[0,3] != 'c' and dat.coeff_op[0,3] != 'k':
-                raise TypeError('Condição de voo ' + str(i+1) + ' não tem função objetiva definida')
+                raise TypeError('Condição de voo ' + str(i+1) + ' não tem função objetivo definida')
     
     for P in range(dat.cases):
         if dat.coeff_op[P,1] == 'o' and dat.coeff_val[P,1] < 0:
             raise TypeError('Condição de voo ' + str(P+1) + ': CD alvo deve ser maior que zero')
         elif dat.coeff_op[P,1] == 'o' and dat.coeff_val[P,1] == 0:
             dat.coeff_op[P,1] = '^'
-            warn('Condição de voo ' + str(P+1) + ': CD = 0 - Função objetiva de arrasto trocada de o para ^'),sleep(5) 
+            warn('Condição de voo ' + str(P+1) + ': CD = 0 - função objetivo de arrasto trocada de o para ^'),sleep(5) 
     
     if dat.cases > 1 and dat.coeff_op[0,3] == 'c' or dat.cases > 1 and dat.coeff_op[0,3] == 'k':
         if sum(dat.coeff_op[1:,3] != '!') != 0:
-            warn('Função objetiva de momento c/k: funções objetivas das condições de voo subsequentes serão ignoradas');sleep(5)
+            warn('função objetivo de momento c/k: funções objetivo das condições de voo subsequentes serão ignoradas');sleep(5)
             dat.coeff_op[1:dat.cases,3] = repeat('!',dat.cases-1)
     
     return dat
