@@ -69,13 +69,13 @@ dat.coeff_F = [1,1,1,1;
                1,1,1,1;
                1,1,1,1];
 % [CL CD L/D CM] Definição da matriz dat.coeff_op
-% '!' -> não usar como função objetiva
+% '!' -> não usar como função objetivo
 % '^' -> procurar por um valor máximo (CL e L/D) ou valor mínimo (CD e CM)
 % 'c'  -> buscar valor constante de coeficiente de momento (arbitrário)
 % 'k' -> buscar valor constante de coeficiente de momento (específico, de dat.coeff_val(1,4))
 % 'o' -> procurar por um valor específico (qualquer um dos parâmetros). Nesse caso, definir o valor
 % em sua respectiva casa no vetor dat.coeff_val
-% O vetor dat.coeff_F dá os pesos de cada função objetiva
+% O vetor dat.coeff_F dá os pesos de cada função objetivo
 
 % Checagem de erros
 dat = error_check_cst_TCC2(dat);
