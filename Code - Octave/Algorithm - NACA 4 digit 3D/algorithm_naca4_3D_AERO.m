@@ -20,7 +20,7 @@
 
 % A fazer:
 % Pôr na checagem de erros tudo o que for referente às opções 'L'
-% Pôr na checagem de erro tudo referente às funções objetivas 'q' e '|'
+% Pôr na checagem de erro tudo referente às funções objetivos 'q' e '|'
 % Retirar o número de reynolds deste algoritmo?
 
 
@@ -96,7 +96,7 @@ dat.coeff_F = [1,1,1,1;
                1,1,1,1;
                1,1,1,1];
 % [CL CD L/D CM] Definição de cada linha da matriz dat.coeff_op
-% '!' -> não usar como função objetiva
+% '!' -> não usar como função objetivo
 % '^' -> procurar por um valor máximo (CL e L/D) ou valor mínimo (CD)
 % 'c' -> buscar valor constante de coeficiente de momento (arbitrário)
 % 'k' -> buscar valor constante de coeficiente de momento (específico, de dat.coeff_val(1,4))
@@ -105,7 +105,7 @@ dat.coeff_F = [1,1,1,1;
 % 'q' -> procurar por um valor específico de força de sustentação, força de arrasto
 % ou momento de arfagem (CL, CD e CM). Nesse caso, definir o valor em sua casa na matriz dat.coeff_val
 % '#' -> procurar por um valor máximo (L) ou mínimo (D)
-% A matriz dat.coeff_F dá os pesos de cada função objetiva
+% A matriz dat.coeff_F dá os pesos de cada função objetivo
 
 % Checagem de erros
 dat = error_check_naca4_3D(dat);
