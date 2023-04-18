@@ -60,13 +60,13 @@ dat.coeff_F = np.array([[1, 1, 1, 1],
                         [1,1,1,1],
                         [1,1,1,1]])
 # [CL CD L/D CM] Definição da matriz dat.coeff_op
-# '!' -> não usar como função objetiva
+# '!' -> não usar como função objetivo
 # '^' -> procurar por um valor máximo (CL e L/D) ou valor mínimo (CD)
 # 'c'  -> buscar valor constante de coeficiente de momento (arbitrário)
 # 'ce' -> buscar valor constante de coeficiente de momento (específico, de dat.coeff_val[0,3])
 # 'o' -> procurar por um valor específico (qualquer um dos parâmetros). Nesse caso, definir o valor
 # em sua respectiva casa na matriz dat.coeff_val
-# O vetor dat.coeff_F dá os pesos de cada função objetiva
+# O vetor dat.coeff_F dá os pesos de cada função objetivo
 
 # Checagem de erros
 dat = error_check_naca4_TCC2(dat)

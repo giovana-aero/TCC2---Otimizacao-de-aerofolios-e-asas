@@ -93,7 +93,7 @@ def fitness_naca4(pop,dat,select2):
                         pop[i].score += pop[i].aero[P,3]/CMtgt*F3 
                         
                             
-        # Funções objetivas c e k para o coeficiente de momento
+        # Funções objetivo c e k para o coeficiente de momento
         if dat.coeff_op[0,3] == 'c' or dat.coeff_op[0,3] == 'k':
             for i in select2:
                 temp = 0
