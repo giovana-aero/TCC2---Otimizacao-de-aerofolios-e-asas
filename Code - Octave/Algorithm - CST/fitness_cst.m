@@ -131,7 +131,7 @@ for P = 1:dat.cases % Fazer loops para cada condição de voo
     end
 end
 
-% Funções objetivas c e k para o coeficiente de momento
+% Funções objetivo c e k para o coeficiente de momento
 if dat.coeff_op(1,4) == 'c' || dat.coeff_op(1,4) == 'k' 
     for i = [select2]
         temp = 0;
