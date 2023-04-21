@@ -32,7 +32,7 @@ start = time()
 
 # Parâmetros do algoritmo
 dat = structure()
-dat.N = 20                              # Número de indivíduos na população
+dat.N = 50                              # Número de indivíduos na população
 dat.mu = 0.05                           # Probabilidade de mutação (definida entre zero e um)
 dat.iter = 5                           # Número de iterações
 dat.elite = 1                         # Aplicar elitismo?
@@ -40,47 +40,47 @@ dat.subs = 1                          # Substituir asas sem resultados? (ver ain
 
 # Dados da asa a ser otimizada
 # Planta
-dat.type = 0 # (0 -> trapezoidal simples, 1 -> trapezoidal dupla) 
-dat.or_b = 4.563
-dat.or_b1 = 10
-dat.or_c_r = 2
+dat.type = 1 # (0 -> trapezoidal simples, 1 -> trapezoidal dupla) 
+dat.or_b = 14
+dat.or_b1 = 7
+dat.or_c_r = 1.5
 dat.or_c_m = 1
-dat.or_c_t = 0.34
-dat.or_sweep = 35
-dat.or_sweep1 = 'Z'
-dat.or_sweep2 = 'Z'
+dat.or_c_t = 0.5
+dat.or_sweep = 0
+dat.or_sweep1 = 0
+dat.or_sweep2 = 0
 # Aerofólio da raiz (NACA 65-006)
-dat.or_v_ex_r = [0.001964, 0.062026, 0.101569, 0.088828, 2.086990, 0.000000]
-dat.or_v_in_r = [0.001964, 0.062026, 0.101569, 0.088828, 2.086990, 0.000000]
+dat.or_v_ex_r = [0.019257, 0.186300, 0.249870, 0.157309, 0.235440, 0.188924, 12.410294, -0.000000]
+dat.or_v_in_r = [0.011473, 0.115911, 0.093905, 0.101085, 0.080645, 0.078528, 4.450847, -0.000000]
 dat.symm_override_r = 0
 # Aerofólio do meio
-dat.or_v_ex_m = [0.01, 0.2, 0.2, 0.1, 10, 0]
-dat.or_v_in_m = [0.01, 0.1, 0.1, 0.1, 10, 0]
+dat.or_v_ex_m = [0.014442, 0.156870, 0.195226, 0.134199, 0.182098, 0.150958, 9.737161, 0.000000]
+dat.or_v_in_m = [0.010888, 0.121675, 0.117244, 0.106087, 0.104701, 0.095760, 5.738599, -0.000000]
 dat.symm_override_m = 0
 # Aerofólio da ponta (NACA 65-006)
-dat.or_v_ex_t = [0.001964, 0.062026, 0.101569, 0.088828, 2.086990, 0.000000]
-dat.or_v_in_t = [0.001964, 0.062026, 0.101569, 0.088828, 2.086990, 0.000000]
+dat.or_v_ex_t = [0.010319, 0.127439, 0.140583, 0.111088, 0.128757, 0.112991, 7.020561, -0.000000]
+dat.or_v_in_t = [0.010319, 0.127439, 0.140583, 0.111088, 0.128757, 0.112991, 7.020561, -0.000000]
 dat.symm_override_t = 0
 dat.or_tw_t = 0
 
 # Parâmetros da geometria: planta da asa
 #dat.planf_op = 0.5; # Proporção de asas trapezoidais simples e bitrapezoidais (0->todas trapezoidais simples, 1->todas bitrapezoidais)
-dat.b_ext = [-1,1,5] # Envergadura completa [m] (limite inferior, valor mínimo possível)
-dat.b1_ext = [-0.2,0.2,1,0.5] # Envergadura da raiz ao meio [m] (asas bitrapezoidais apenas) (valor mínimo,valor máximo,valor mínimo possível,separação mínima da ponta da asa (considerando apenas uma metade)) 
-dat.c_r_ext = [-0.5,0.5,0.5] # Corda da raiz [m] (limite inferior, valor mínimo possível)
-dat.c_m_ext = [-0.2,0.2,0.5] # Corda do meio [m] (asas bitrapezoidais apenas) (limite inferior, limite superior, valor mínimo possível) (a opção 'L' força o formato trapezoidal simples)
-dat.c_t_ext = [-0.5,0.5,0.2] # Corda da ponta [m] (limite inferior, valor mínimo possível)
+dat.b_ext = [-0.5,0.5,1] # Envergadura completa [m] (limite inferior, valor mínimo possível)
+dat.b1_ext = [-0.5,0.5,1,0.5] # Envergadura da raiz ao meio [m] (asas bitrapezoidais apenas) (valor mínimo,valor máximo,valor mínimo possível,separação mínima da ponta da asa (considerando apenas uma metade)) 
+dat.c_r_ext = [-0.1,0.1,0.5] # Corda da raiz [m] (limite inferior, valor mínimo possível)
+dat.c_m_ext = [-0.1,0.1,0.5] # Corda do meio [m] (asas bitrapezoidais apenas) (limite inferior, limite superior, valor mínimo possível) (a opção 'L' força o formato trapezoidal simples)
+dat.c_t_ext = [-0.1,0.1,0.1] # Corda da ponta [m] (limite inferior, valor mínimo possível)
 dat.sweep_ext = [-0,0] # Enflechamento de asas trapezoidais simples (opção 'Z' faz com que a linha c/2 tenha enflechamento zero)
-dat.sweep1_ext = [-0,0] # Enflechamento da primeira seção de asas trapezoidais duplas (opção 'Z' faz com que a linha c/2 tenha enflechamento zero)
-dat.sweep2_ext = [-0,0] # Enflechamento da segunda seção de asas trapezoidais duplas (opção 'Z' faz com que a linha c/2 tenha enflechamento zero)
+dat.sweep1_ext = [-5,5] # Enflechamento da primeira seção de asas trapezoidais duplas (opção 'Z' faz com que a linha c/2 tenha enflechamento zero)
+dat.sweep2_ext = [-5,5] # Enflechamento da segunda seção de asas trapezoidais duplas (opção 'Z' faz com que a linha c/2 tenha enflechamento zero)
 # Parâmetros da geometria: aerofólio da raiz
 dat.BPn_r = len(dat.or_v_ex_r)-2                  # Grau do polinômio de Bernstein (número de variáveis de design = BPn+1 mais o delta_z)
 dat.N1_r = 0.5
 dat.N2_r = 1
 dat.le_R_ext1_r = [-0.01,0.01,0.005] # Limite inferior, limite superior, valor mínimo possível (pois Rle > 0)
 dat.le_R_ext2_r = [-0.01,0.01,0.005]
-dat.A_ext1_r = [-0.1,0.1]
-dat.A_ext2_r = [-0.1,0.1]
+dat.A_ext1_r = [-0.05,0.05]
+dat.A_ext2_r = [-0.05,0.05]
 dat.B_ext1_r = [-5,5] # Limites inferior e superior
 dat.B_ext2_r = [dat.or_v_ex_r[-2] + dat.or_v_in_r[-2],5] # O primeiro número é a separação mínima do extradorso, o segundo é o limite superior
 # Parâmetros da geometria: aerofólio do meio (asas bitrapezoidais apenas) 
@@ -89,8 +89,8 @@ dat.N1_m = 0.5
 dat.N2_m = 1
 dat.le_R_ext1_m = [-0.01,0.01,0.005] # (admite opção 'L')
 dat.le_R_ext2_m = [-0.01,0.01,0.005]
-dat.A_ext1_m = [-0.1,0.1]
-dat.A_ext2_m = [-0.1,0.1]
+dat.A_ext1_m = [-0.05,0.05]
+dat.A_ext2_m = [-0.05,0.05]
 dat.B_ext1_m = [-5,5] # Limites inferior e superior
 dat.B_ext2_m = [dat.or_v_ex_m[-2] + dat.or_v_in_m[-2],5] # O primeiro número é a separação mínima do extradorso, o segundo é o limite superior
 # Parâmetros da geometria: aerofólio da ponta
@@ -99,11 +99,11 @@ dat.N1_t = 0.5
 dat.N2_t = 1
 dat.le_R_ext1_t = [-0.01,0.01,0.005]
 dat.le_R_ext2_t = [-0.01,0.01,0.005]
-dat.A_ext1_t = [-0.1,0.1]
-dat.A_ext2_t = [-0.1,0.1]
+dat.A_ext1_t = [-0.05,0.05]
+dat.A_ext2_t = [-0.05,0.05]
 dat.B_ext1_t = [-5,-5] # Limites inferior e superior
 dat.B_ext2_t = [dat.or_v_ex_t[-2] + dat.or_v_in_t[-2],5] # O primeiro número é a separação mínima do extradorso, o segundo é o limite superior
-dat.tw_t_ext = [-1,0]
+dat.tw_t_ext = [-5,0]
 
 # Torção geométrica
 dat.tw_t_ext_in = [-1,1] # Torção geométrica [°]
@@ -123,10 +123,10 @@ dat.rho = [1.225,1.225,1.225] # Densidades do ar [kg/m^3]
 dat.p_atm = [101325,101325,101325] # Pressões do ar [Pa] (irrelevante neste algoritmo)
 dat.mach = [0.6,0,0.] # Números de Mach
 dat.reynolds = [1e6,1e6,1e6]           # Valores dos números de Reynolds para as simulações (irrelevante neste algoritmo))
-dat.aoa = [2,0,4]                      # Ângulos de ataque
+dat.aoa = [5,0,4]                      # Ângulos de ataque
 dat.karman_tsien = ['Y','N','N']    # Correção de compressibilidade de Karman-Tsien
 dat.wake_iters = [1,1,1]            # Números de iterações no VSPAERO
-dat.coeff_op = np.array((['!','^','^','!'],       # Uma linha para cada condição de voo
+dat.coeff_op = np.array((['!','!','^','!'],       # Uma linha para cada condição de voo
                          ['!','!','!','!'],
                          ['!','!','!','!']))
 dat.coeff_val = np.array(([0.05,7e-3,90,-1e-1],
@@ -187,6 +187,8 @@ empty.score = 0
 # Inicializar os structs
 pop = empty.repeat(dat.N)
 chi = empty.repeat(dat.N)
+for i in range(dat.N):
+    chi[i].type = dat.type
 
 # Fazer um struct da asa original
 original = empty.deepcopy()
@@ -554,11 +556,11 @@ for loop in range(dat.iter):
     pos = np.argmax(weights)
     archive[loop] = pop[pos].deepcopy()
     
-    # Mostrar a melhor asa
-    plt.figure()
-    plot_planform(pop[pos],'k')
-    plt.axis('equal');plt.grid('true')
-    plt.title('Iteração ' + str(loop+1))   
+    # # Mostrar a melhor asa
+    # plt.figure()
+    # plot_planform(pop[pos],'k')
+    # plt.axis('equal');plt.grid('true')
+    # plt.title('Iteração ' + str(loop+1))   
 
     # Parar o código aqui na última iteração, já que nesse cenário o resto
     # do código é inútil
@@ -1460,7 +1462,7 @@ for loop in range(dat.iter):
             
             # Envergadura b
             if mu_op_v[0] == 1:
-                chi[s].b = dat.or_b + random.randint()*dat.b_ext(random.randint(0,1))
+                chi[s].b = dat.or_b + random.random()*dat.b_ext[random.randint(0,1)]
                 if chi[s].b < dat.b_ext[2]:
                     chi[s].b = dat.b_ext[2]
             
@@ -1472,7 +1474,7 @@ for loop in range(dat.iter):
             
             # Corda da raiz c_r
             if mu_op_v[2] == 1:
-                chi[s].c_r = dat.or_c_r + random.random()*dat.c_r_ext(random.randint(0,1))
+                chi[s].c_r = dat.or_c_r + random.random()*dat.c_r_ext[random.randint(0,1)]
                 if chi[s].c_r < dat.c_r_ext[2]:
                     chi[s].c_r = dat.c_r_ext[2]
             
@@ -1494,8 +1496,8 @@ for loop in range(dat.iter):
                 # Se a envergadura da primeira seção for maior do que permitido
                 # pelo requisito de separação, atribuir o máximo valor que 
                 # cumpre o requisito
-                if chi[s].b1 > chi[s].b-dat.b1_ext_in[2]*2:
-                    chi[s].b1 = chi[s].b-dat.b1_ext_in[2]*2
+                if chi[s].b1 > chi[s].b-dat.b1_ext[3]*2:
+                    chi[s].b1 = chi[s].b-dat.b1_ext[3]*2
                 
                 # Se a corda do meio for maior do que a corda da raiz, atribuir
                 # o valor da raiz ao meio
@@ -1795,23 +1797,23 @@ for loop in range(dat.iter):
             
             # Torção geométrica na ponta
             if mu_op_v[8] == 1:
-                chi[s].tw_t = dat.or_tw_t + random.random()*dat.tw_t_ext(random.randint(0,1))
+                chi[s].tw_t = dat.or_tw_t + random.random()*dat.tw_t_ext[random.randint(0,1)]
             
             # Enflechamento total (asas trapezoidais simples)
-            if mu_op_v[9] == 1 and chi[s].type == 0 and not 'Z' in dat.sweep_ext_in:
+            if mu_op_v[9] == 1 and chi[s].type == 0 and not 'Z' in dat.sweep_ext and dat.or_sweep != 'Z':
                 chi[s].sweep = dat.or_sweep + random.random()*dat.sweep_ext[random.randint(0,1)]
         
             # Enflechamento da primeira seção (asas bitrapezoidais)
-            if mu_op_v[10] == 1 and chi[s].type == 1 and not 'Z' in dat.sweep1_ext_in:
+            if mu_op_v[10] == 1 and chi[s].type == 1 and not 'Z' in dat.sweep1_ext and dat.or_sweep1 != 'Z':
                 chi[s].sweep1 = dat.or_sweep1 + random.random()*dat.sweep1_ext[random.randint(0,1)]
             
             # Enflechamento da segunda seção (asas bitrapezoidais)
-            if mu_op_v[11] == 1 and chi[s].type == 1 and not 'Z' in dat.sweep2_ext_in:
+            if mu_op_v[11] == 1 and chi[s].type == 1 and not 'Z' in dat.sweep2_ext and dat.or_sweep2 != 'Z':
                 chi[s].sweep2 = dat.or_sweep2 + random.random()*dat.sweep2_ext[random.randint(0,1)]
             
             # Debugging: ver como estão sendo cumpridas os requisitos de geometria da planta
             if chi[s].type == 1:
-                if chi[s].b1 > chi[s].b-2*dat.b1_ext_in[2] or chi[s].c_t > chi[s].c_m and dat.or_c_m != 'L' or chi[s].c_m > chi[s].c_r and dat.or_c_m != 'L':
+                if chi[s].b1 > chi[s].b-2*dat.b1_ext[3] or chi[s].c_t > chi[s].c_m and dat.or_c_m != 'L' or chi[s].c_m > chi[s].c_r and dat.or_c_m != 'L':
                     raise TypeError('Problema na geometria da planta')
             
             k += 1
@@ -1850,24 +1852,24 @@ print('Tempo: ' + str(mi) + 'min e ' + str(s) + 's')
 # plt.legend('Otimizado','Original');plt.title('Ponta');plt.axis('equal');plt.grid('True')
 
 # Fazer gráficos dos coeficientes dos melhores indivíduos de cada geração
-for i in range(dat.cases):
-    aero_m = np.zeros((dat.iter,4))
-    for j in range(dat.iter):
-        aero_m[j,:] = archive[j].aero[i,:]
-    plt.figure()
-    plt.subplots()
-    plt.plot(np.arange(1,dat.iter+1),aero_m[:,0],'g-*',label='CL')
-    plt.plot(np.arange(1,dat.iter+1),aero_m[:,1],'r-*',label='CD')
-    plt.plot(np.arange(1,dat.iter+1),aero_m[:,3],'b-*',label='CM')
-    plt.ylabel('CL, CD, CM')
-    plt.legend(loc='upper left')
-    plt.twinx()
-    plt.plot(np.arange(1,dat.iter+1),aero_m[:,2],'k-*',label='L/D')
-    plt.ylabel('L/D')
-    plt.legend(loc='upper right')
-    plt.grid('True')
-    plt.title('Melhores resultados - Condição de voo '  + str(i+1) + ':  Re ' + str(dat.reynolds[i]) + ', AoA ' + str(dat.aoa[i]) + '°')
-    plt.xlabel('Iteração')  
+# for i in range(dat.cases):
+    # aero_m = np.zeros((dat.iter,4))
+    # for j in range(dat.iter):
+        # aero_m[j,:] = archive[j].aero[i,:]
+    # plt.figure()
+    # plt.subplots()
+    # plt.plot(np.arange(1,dat.iter+1),aero_m[:,0],'g-*',label='CL')
+    # plt.plot(np.arange(1,dat.iter+1),aero_m[:,1],'r-*',label='CD')
+    # plt.plot(np.arange(1,dat.iter+1),aero_m[:,3],'b-*',label='CM')
+    # plt.ylabel('CL, CD, CM')
+    # plt.legend(loc='upper left')
+    # plt.twinx()
+    # plt.plot(np.arange(1,dat.iter+1),aero_m[:,2],'k-*',label='L/D')
+    # plt.ylabel('L/D')
+    # plt.legend(loc='upper right')
+    # plt.grid('True')
+    # plt.title('Melhores resultados - Condição de voo '  + str(i+1) + ':  Re ' + str(dat.reynolds[i]) + ', AoA ' + str(dat.aoa[i]) + '°')
+    # plt.xlabel('Iteração')  
 
 
 # Pegar o struct de arquivo e imprimir todos
