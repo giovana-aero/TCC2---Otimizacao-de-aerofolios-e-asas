@@ -2,6 +2,9 @@
 # Otimização de asas trapezoidais simples ou duplas, com perfis CST, feita
 # em termos de uma geometria inicial específica
 
+# NOTA: a função plot_airfoil_cst_TCC2 quebra a API do OpenVSP. Será que é 
+# devido ao uso do locale?
+
 # Pacotes necessários
 import numpy as np
 from ypstruct import structure
@@ -23,7 +26,7 @@ from fitness_cst_3D import fitness_cst_3D
 # from make_vector import make_vector
 from selection_crossover import selection_crossover
 from plot_planform import plot_planform 
-from plot_airfoil_cst_TCC2 import plot_airfoil_cst_TCC2
+#from plot_airfoil_cst_TCC2 import plot_airfoil_cst_TCC2
 
 start = time()
 
@@ -53,7 +56,7 @@ dat.symm_override_r = 0
 # Aerofólio do meio
 dat.or_v_ex_m = [0.01, 0.2, 0.2, 0.1, 10, 0]
 dat.or_v_in_m = [0.01, 0.1, 0.1, 0.1, 10, 0]
-dat.symm_override_m = 0;
+dat.symm_override_m = 0
 # Aerofólio da ponta (NACA 65-006)
 dat.or_v_ex_t = [0.001964, 0.062026, 0.101569, 0.088828, 2.086990, 0.000000]
 dat.or_v_in_t = [0.001964, 0.062026, 0.101569, 0.088828, 2.086990, 0.000000]
@@ -1829,22 +1832,22 @@ mi = np.fix((end-start)/60)
 s = (end-start)%60
 print('Tempo: ' + str(mi) + 'min e ' + str(s) + 's')
 
-# Comparar aerofólios
-plt.figure()
-#plot_airfoil_cst_TCC2(run_cst_TCC2(pop(pos).v_ex,pop(pos).v_in,dat),1,loop),hold on
-plot_airfoil_cst_TCC2(4,run_cst_TCC2_3D(pop[pos].v_ex_r,pop[pos].v_in_r,dat,[dat.N1_r,dat.N2_r]))
-plot_airfoil_cst_TCC2(3,run_cst_TCC2_3D(dat.or_v_ex_r,dat.or_v_in_r,dat,[dat.N1_r,dat.N2_r]))
-plt.legend('Otimizado','Original');plt.title('Raiz');plt.axis('equal');plt.grid('True')
-if dat.type == 1:
-    plt.figure()
-    plot_airfoil_cst_TCC2(4,run_cst_TCC2_3D(pop[pos].v_ex_m,pop[pos].v_in_m,dat,[dat.N1_m,dat.N2_m]))
-    plot_airfoil_cst_TCC2(3,run_cst_TCC2_3D(dat.or_v_ex_m,dat.or_v_in_m,dat,[dat.N1_m,dat.N2_m]))
-    plt.legend('Otimizado','Original');plt.title('Meio');plt.axis('equal');plt.grid('True')
+# # Comparar aerofólios
+# plt.figure()
+# #plot_airfoil_cst_TCC2(run_cst_TCC2(pop(pos).v_ex,pop(pos).v_in,dat),1,loop),hold on
+# plot_airfoil_cst_TCC2(4,run_cst_TCC2_3D(pop[pos].v_ex_r,pop[pos].v_in_r,dat,[dat.N1_r,dat.N2_r]))
+# plot_airfoil_cst_TCC2(3,run_cst_TCC2_3D(dat.or_v_ex_r,dat.or_v_in_r,dat,[dat.N1_r,dat.N2_r]))
+# plt.legend('Otimizado','Original');plt.title('Raiz');plt.axis('equal');plt.grid('True')
+# if dat.type == 1:
+    # plt.figure()
+    # plot_airfoil_cst_TCC2(4,run_cst_TCC2_3D(pop[pos].v_ex_m,pop[pos].v_in_m,dat,[dat.N1_m,dat.N2_m]))
+    # plot_airfoil_cst_TCC2(3,run_cst_TCC2_3D(dat.or_v_ex_m,dat.or_v_in_m,dat,[dat.N1_m,dat.N2_m]))
+    # plt.legend('Otimizado','Original');plt.title('Meio');plt.axis('equal');plt.grid('True')
 
-plt.figure()
-plot_airfoil_cst_TCC2(4,run_cst_TCC2_3D(pop[pos].v_ex_t,pop[pos].v_in_t,dat,[dat.N1_t,dat.N2_t]))
-plot_airfoil_cst_TCC2(3,run_cst_TCC2_3D(dat.or_v_ex_t,dat.or_v_in_t,dat,[dat.N1_r,dat.N2_t]))
-plt.legend('Otimizado','Original');plt.title('Ponta');plt.axis('equal');plt.grid('True')
+# plt.figure()
+# plot_airfoil_cst_TCC2(4,run_cst_TCC2_3D(pop[pos].v_ex_t,pop[pos].v_in_t,dat,[dat.N1_t,dat.N2_t]))
+# plot_airfoil_cst_TCC2(3,run_cst_TCC2_3D(dat.or_v_ex_t,dat.or_v_in_t,dat,[dat.N1_r,dat.N2_t]))
+# plt.legend('Otimizado','Original');plt.title('Ponta');plt.axis('equal');plt.grid('True')
 
 # Fazer gráficos dos coeficientes dos melhores indivíduos de cada geração
 for i in range(dat.cases):
