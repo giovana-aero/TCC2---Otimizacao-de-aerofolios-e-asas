@@ -32,7 +32,7 @@ start = time()
 
 # Parâmetros do algoritmo
 dat = structure()
-dat.N = 30                              # Número de indivíduos na população
+dat.N = 20                              # Número de indivíduos na população
 dat.mu = 0.05                           # Probabilidade de mutação (definida entre zero e um)
 dat.iter = 5                           # Número de iterações
 dat.elite = 1                         # Aplicar elitismo?
@@ -225,6 +225,8 @@ if dat.method == 1: # Painéis 3D
 elif dat.method == 2: # VLM
     original = run_openvsp_cst_VLM_specify(original,dat) # Obter geometria OpenVSP            
     original.aero = run_vspaero_VLM(original,dat) # Simulação
+    
+print(original.aero),input()
     
 if original.aero == 'n':
     i = input('A simulação do indivíduo original não convergiu. Continuar mesmo assim? (y/n) ')
@@ -547,6 +549,11 @@ for loop in range(dat.iter):
      # Atribuir pontuações (fitnesses)
     pop = fitness_cst_3D(pop,dat,select2);
     
+    # for i in range(dat.N):
+        # print(pop[i].aero)
+        # print(pop[i].score)
+    # input()
+    
     # Isto serve pra pôr todas as pontuações em um vetor
     weights = np.zeros(dat.N)
     for i in range(dat.N):
@@ -555,6 +562,12 @@ for loop in range(dat.iter):
     # Guardar a melhor asa de cada iteração
     pos = np.argmax(weights)
     archive[loop] = pop[pos].deepcopy()
+    
+    # print(pop[pos].aero)
+    # print(pop[pos].score)
+    # print(archive[loop].aero)
+    # print(archive[loop].score)
+    # input()
     
     # # Mostrar a melhor asa
     # plt.figure()
@@ -1946,9 +1959,9 @@ for i in range(len(archive)):
     for j in range(dat.cases):
 #        fprintf('Condição de voo %d (CL,CD,L/D,CM): ',j),disp(archive(i).aero(j,:))
         print('Condição de voo %d: (CL,CD,L/D,CM)',j)
-        print('Original: %f, %f, %f, %f'%(archive[i].aero[j,0],archive[i].aero[j,1],archive[i].aero[j,2],archive[i].aero[j,3]),end='')
+        print('Original: %f, %f, %f, %f'%(original[i].aero[j,0],original[i].aero[j,1],original[i].aero[j,2],original[i].aero[j,3]),end='')
         print('')
-        print('Otimizado: %f, %f, %f, %f'%(original.aero[j,0],original.aero[j,1],original.aero[j,2],original.aero[j,3]))
+        print('Otimizado: %f, %f, %f, %f'%(archive.aero[j,0],archive.aero[j,1],archive.aero[j,2],archive.aero[j,3]))
         
         if 'q' in dat.coeff_op[:,0] or '#' in dat.coeff_op[:,0]:
             print('L = %f N (Original)'%(original.aero[j,0]*1/2*dat.rho[j]*dat.v_ref[j]**2*original.S))
