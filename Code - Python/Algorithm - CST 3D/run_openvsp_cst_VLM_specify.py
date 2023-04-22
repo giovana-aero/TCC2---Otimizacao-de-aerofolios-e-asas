@@ -193,8 +193,8 @@ def run_openvsp_cst_VLM_specify(pop,dat):
                 nb2 = dat.nb2
                 nb = nb1 + nb2
             
-            vsp.SetParmVal(wid,'SectTess_U','XSec_1',nb1)
-            vsp.SetParmVal(wid,'SectTess_U','XSec_2',nb2)
+            #vsp.SetParmVal(wid,'SectTess_U','XSec_1',nb1)
+            #vsp.SetParmVal(wid,'SectTess_U','XSec_2',nb2)
         
         
     # Checar erros na API
@@ -216,8 +216,8 @@ def run_openvsp_cst_VLM_specify(pop,dat):
     # vsp.ExportFile(name + '.tri',vsp.SET_ALL,vsp.EXPORT_CART3D )
     vsp.ComputeDegenGeom( vsp.SET_ALL, vsp.DEGEN_GEOM_CSV_TYPE )
     # os.remove(name + '.tkey')
-    # if os.path.exists(name + "_DegenGeom.csv"):os.remove(name + "_DegenGeom.csv")
-    # os.rename('Unnamed_DegenGeom.csv', name + "_DegenGeom.csv")
+    if os.path.exists(name + "_DegenGeom.csv"):os.remove(name + "_DegenGeom.csv")
+    os.rename('Unnamed_DegenGeom.csv', name + "_DegenGeom.csv")
     
     # Mais alguns dados da geometria
     if plan_type == 0:

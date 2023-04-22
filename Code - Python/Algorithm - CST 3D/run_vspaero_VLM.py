@@ -85,33 +85,33 @@ def run_vspaero_VLM(pop,dat):
         fid.close() # fechar arquivo
         
         # Executar a simulação
-        # os.system('vspaero -omp 4 ' + name) 
-        count = 1
-        while 1:
-            p = multiprocessing.Process(target=execute) # Iniciar a execução do VSPAERO como um processo
-            p.start()
-            print('iniciado')
-            # p.join(wait) # Esperar um tempo
-            sleep(wait)
-            print('tempo esgotado')
+        os.system('vspaero -omp 4 ' + name) 
+        # count = 1
+        # while 1:
+            # p = multiprocessing.Process(target=execute) # Iniciar a execução do VSPAERO como um processo
+            # p.start()
+            # print('iniciado')
+            # # p.join(wait) # Esperar um tempo
+            # sleep(wait)
+            # print('tempo esgotado')
             
-            if p.is_alive(): # Se ainda estiver funcionando, fechar e continuar o algoritmo
-                print('Terminar e tentar de novo')
-                # Terminate - may not work if process is stuck for good
-                # p.terminate()
-                # OR Kill - will work for sure, no chance for process to finish nicely however
-                p.kill()
+            # if p.is_alive(): # Se ainda estiver funcionando, fechar e continuar o algoritmo
+                # print('Terminar e tentar de novo')
+                # # Terminate - may not work if process is stuck for good
+                # # p.terminate()
+                # # OR Kill - will work for sure, no chance for process to finish nicely however
+                # p.kill()
     
-                p.join()
+                # p.join()
             
-            else:
-                p.join(); break
+            # else:
+                # p.join(); break
             
-            count += 1
-            if count > tries: 
-                aero = 'n'
-                print('Número máximo de tentativas excedido - prosseguindo para o próximo indivíduo')
-                return aero
+            # count += 1
+            # if count > tries: 
+                # aero = 'n'
+                # print('Número máximo de tentativas excedido - prosseguindo para o próximo indivíduo')
+                # return aero
         
         
         # Apagar arquivos irrelevantes

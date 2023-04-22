@@ -32,7 +32,7 @@ start = time()
 
 # Parâmetros do algoritmo
 dat = structure()
-dat.N = 50                              # Número de indivíduos na população
+dat.N = 30                              # Número de indivíduos na população
 dat.mu = 0.05                           # Probabilidade de mutação (definida entre zero e um)
 dat.iter = 5                           # Número de iterações
 dat.elite = 1                         # Aplicar elitismo?
@@ -1554,7 +1554,7 @@ for loop in range(dat.iter):
                     
                     elif n == 3: # Alterar os pesos intermediários (intradorso) dentro de uma extensão próxima aos valores originais
                         for a in range (1,dat.BPn_r):
-                            temp.v_in_r[a] = dat.or_v_in[a] + random.random()*dat.A_ext2_r[random.randint(0,1)]
+                            temp.v_in_r[a] = dat.or_v_in_r[a] + random.random()*dat.A_ext2_r[random.randint(0,1)]
     
                     elif n == 4: # Alterar os pesos intermediários (extradorso e intradorso) dentro de uma extensão próxima aos valores originais
                         if temp.symm_r == 1: # Perfis simétricos ficam com os pesos intermediários com os mesmos valores
@@ -1567,7 +1567,7 @@ for loop in range(dat.iter):
                                 temp.v_ex_r[a] = dat.or_v_ex_r[a] + random.random()*dat.A_ext1_r[random.randint(0,1)]
                             
                             for a in range (1,dat.BPn_r):
-                                temp.v_in_r[a] =dat.or_v_in[a] + random.random()*dat.A_ext2_r[random.randint(0,1)]
+                                temp.v_in_r[a] =dat.or_v_in_r[a] + random.random()*dat.A_ext2_r[random.randint(0,1)]
     
                     elif n == 5: # Alterar o ângulo do bordo de fuga
                         if temp.symm_r == 1: # Se for simétrico
@@ -1603,7 +1603,7 @@ for loop in range(dat.iter):
             
             
             # Aerofólio do meio (asas bitrapezoidais apenas)
-            if mu_op_v[6] == 1 and chi[s].type == 1 and not 'L' in dat.le_r_ext1_m:
+            if mu_op_v[6] == 1 and chi[s].type == 1 and not 'L' in dat.le_R_ext1_m:
                 check = 0
                 while check == 0:
                     
@@ -1647,7 +1647,7 @@ for loop in range(dat.iter):
                     
                     elif n == 3: # Alterar os pesos intermediários (intradorso) dentro de uma extensão próxima aos valores originais
                         for a in range (1,dat.BPn_m):
-                            temp.v_in_m[a] = dat.or_v_in[a] + random.random()*dat.A_ext2_m[random.randint(0,1)]
+                            temp.v_in_m[a] = dat.or_v_in_m[a] + random.random()*dat.A_ext2_m[random.randint(0,1)]
     
                     elif n == 4: # Alterar os pesos intermediários (extradorso e intradorso) dentro de uma extensão próxima aos valores originais
                         if temp.symm_m == 1: # Perfis simétricos ficam com os pesos intermediários com os mesmos valores
@@ -1660,7 +1660,7 @@ for loop in range(dat.iter):
                                 temp.v_ex_m[a] = dat.or_v_ex_m[a] + random.random()*dat.A_ext1_m[random.randint(0,1)]
                             
                             for a in range (1,dat.BPn_m):
-                                temp.v_in_m[a] =dat.or_v_in[a] + random.random()*dat.A_ext2_m[random.randint(0,1)]
+                                temp.v_in_m[a] =dat.or_v_in_m[a] + random.random()*dat.A_ext2_m[random.randint(0,1)]
     
                     elif n == 5: # Alterar o ângulo do bordo de fuga
                         if temp.symm_m == 1: # Se for simétrico
@@ -1738,7 +1738,7 @@ for loop in range(dat.iter):
                     
                     elif n == 3: # Alterar os pesos intermediários (intradorso) dentro de uma extensão próxima aos valores originais
                         for a in range (1,dat.BPn_t):
-                            temp.v_in_t[a] = dat.or_v_in[a] + random.random()*dat.A_ext2_t[random.randint(0,1)]
+                            temp.v_in_t[a] = dat.or_v_in_t[a] + random.random()*dat.A_ext2_t[random.randint(0,1)]
     
                     elif n == 4: # Alterar os pesos intermediários (extradorso e intradorso) dentro de uma extensão próxima aos valores originais
                         if temp.symm_t == 1: # Perfis simétricos ficam com os pesos intermediários com os mesmos valores
