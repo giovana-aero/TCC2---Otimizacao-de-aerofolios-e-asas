@@ -226,8 +226,6 @@ elif dat.method == 2: # VLM
     original = run_openvsp_cst_VLM_specify(original,dat) # Obter geometria OpenVSP            
     original.aero = run_vspaero_VLM(original,dat) # Simulação
     
-print(original.aero),input()
-    
 if original.aero == 'n':
     i = input('A simulação do indivíduo original não convergiu. Continuar mesmo assim? (y/n) ')
     if i != 'y' and i != 'Y':
@@ -548,12 +546,7 @@ for loop in range(dat.iter):
     
      # Atribuir pontuações (fitnesses)
     pop = fitness_cst_3D(pop,dat,select2);
-    
-    # for i in range(dat.N):
-        # print(pop[i].aero)
-        # print(pop[i].score)
-    # input()
-    
+
     # Isto serve pra pôr todas as pontuações em um vetor
     weights = np.zeros(dat.N)
     for i in range(dat.N):
@@ -562,12 +555,6 @@ for loop in range(dat.iter):
     # Guardar a melhor asa de cada iteração
     pos = np.argmax(weights)
     archive[loop] = pop[pos].deepcopy()
-    
-    # print(pop[pos].aero)
-    # print(pop[pos].score)
-    # print(archive[loop].aero)
-    # print(archive[loop].score)
-    # input()
     
     # # Mostrar a melhor asa
     # plt.figure()
