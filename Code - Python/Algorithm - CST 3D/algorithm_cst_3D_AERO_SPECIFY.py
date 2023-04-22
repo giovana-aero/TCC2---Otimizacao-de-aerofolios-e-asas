@@ -1946,9 +1946,9 @@ for i in range(len(archive)):
     for j in range(dat.cases):
 #        fprintf('Condição de voo %d (CL,CD,L/D,CM): ',j),disp(archive(i).aero(j,:))
         print('Condição de voo %d: (CL,CD,L/D,CM)',j)
-        print('Original: %f, %f, %f, %f'%(original[i].aero[j,0],original[i].aero[j,1],original[i].aero[j,2],original[i].aero[j,3]),end='')
+        print('Original: %f, %f, %f, %f'%(original.aero[j,0],original.aero[j,1],original.aero[j,2],original.aero[j,3]),end='')
         print('')
-        print('Otimizado: %f, %f, %f, %f'%(archive.aero[j,0],archive.aero[j,1],archive.aero[j,2],archive.aero[j,3]))
+        print('Otimizado: %f, %f, %f, %f'%(archive[i].aero[j,0],archive[i].aero[j,1],archive[i].aero[j,2],archive[i].aero[j,3]))
         
         if 'q' in dat.coeff_op[:,0] or '#' in dat.coeff_op[:,0]:
             print('L = %f N (Original)'%(original.aero[j,0]*1/2*dat.rho[j]*dat.v_ref[j]**2*original.S))
