@@ -6,7 +6,7 @@ Os scripts .m foram escritos no Octave. Não foram feitos testes no MATLAB, mas 
 
 Os executáveis relevantes do XFOIL, do APAME e do VSPAERO já estão inclusos nestas pastas, mas, para fim de documentação, eles estão disponíveis em, respectivamente, https://web.mit.edu/drela/Public/web/xfoil/, http://www.3dpanelmethod.com/download.html e http://openvsp.org/download.php
 
-Há alguns aspectos destes códigos que eu não pude testar completamente, portanto, podem me avisar sobre erros, e eu corrigirei.
+Há alguns aspectos destes códigos que eu não pude testar completamente, portanto, erros podem ocorrer.
 
 << Autor: Gustavo Weffort Fernandes >>
 
