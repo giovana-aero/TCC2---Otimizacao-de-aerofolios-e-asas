@@ -8,7 +8,7 @@ Os executáveis relevantes do XFOIL, do APAME e do VSPAERO já estão inclusos n
 
 Há alguns aspectos destes códigos que eu não pude testar completamente, portanto, erros podem ocorrer.
 
-<< Autor: Gustavo Weffort Fernandes >>
+<< Autora: Giovana Fernandes >>
 
 
 A ser alterado:
