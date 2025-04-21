@@ -7,11 +7,11 @@ ct = 1;
 n = 5;
 
 
-% Primeira equação
+% Primeira equaÃ§Ã£o
 B1 = cr/2;
 A1 = (ct/2-B1)*2/b;
 
-% Segunda equação
+% Segunda equaÃ§Ã£o
 
 
 x2 = linspace(0,1,n+2)*b/2;
@@ -36,5 +36,3 @@ for i = 2:n+1
 end
 % Ponta direita
 plot([x2(end),x2(end)],[ct/2,-ct/2],'k','linewidth',3)
-
-%saveas(gcf,'aoba.png')
