@@ -1,10 +1,10 @@
 function plot_airfoil_cst_TCC2(op,coordenadas,loop,pop)
     
-% - As duas primeiras entradas (coordenadas,op) são obrigatórias para todos os casos
-% - A terceira entrada é obrigatória para op = 1 e op = 2
-% - A quarta entrada é obrigatória para op = 2
+% - As duas primeiras entradas (coordenadas,op) sÃ£o obrigatÃ³rias para todos os casos
+% - A terceira entrada Ã© obrigatÃ³ria para op = 1 e op = 2
+% - A quarta entrada Ã© obrigatÃ³ria para op = 2
 
-% A opção zero será a padrão
+% A opÃ§Ã£o zero serÃ¡ a padrÃ£o
 if nargin == 0
     op = 0;
 end
@@ -13,21 +13,21 @@ if op == 0 % Ler coordenadas a partir de um arquivo de texto
     coordenadas = dlmread('coordenadas.dat');
     plot(coordenadas(:,1),coordenadas(:,2))
 
-elseif op == 1 % Pôr no título apenas o número da iteração
+elseif op == 1 % PÃ´r no tÃ­tulo apenas o nÃºmero da iteraÃ§Ã£o
     plot(coordenadas(:,1),coordenadas(:,2))
-    title(['Iteração ' num2str(loop)])
+    title(['IteraÃ§Ã£o ' num2str(loop)])
     
-elseif op == 2 % Pôr no título as informações aerodinâmicas
+elseif op == 2 % PÃ´r no tÃ­tulo as informaÃ§Ãµes aerodinÃ¢micas
     plot(coordenadas(:,1),coordenadas(:,2))
     aero = pop.aero;
-    title(['Iteração ' num2str(loop) ': CL = ' num2str(aero(1))...
+    title(['IteraÃ§Ã£o ' num2str(loop) ': CL = ' num2str(aero(1))...
           ', CD = ' num2str(aero(2)) ', L/D = ', num2str(aero(3)) ', CM = ' num2str(aero(4))])
     
-elseif op == 3 % Fazer com estilo tracejado pra fins de comparação
+elseif op == 3 % Fazer com estilo tracejado pra fins de comparaÃ§Ã£o
     plot(coordenadas(:,1),coordenadas(:,2),'--')
    
   
-elseif op == 4 % Fazer um gráfico sem nada no título
+elseif op == 4 % Fazer um grÃ¡fico sem nada no tÃ­tulo
   plot(coordenadas(:,1),coordenadas(:,2))
  
 end
