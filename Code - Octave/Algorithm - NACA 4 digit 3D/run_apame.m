@@ -1,9 +1,9 @@
 function aero = run_apame(pop,dat)
 
-% Esta funÁ„o escreve o arquivo de entrada do APAME, faz a simulaÁ„o da asa
-% e retorna os coeficientes aerodin‚micos relevantes
+% Esta fun√ß√£o escreve o arquivo de entrada do APAME, faz a simula√ß√£o da asa
+% e retorna os coeficientes aerodin√¢micos relevantes
 
-% Dados da simulaÁ„o
+% Dados da simula√ß√£o
 cases = dat.cases;
 v_ref = dat.v_ref;
 rho = dat.rho;
@@ -25,7 +25,7 @@ for i = 1:cases
     % Imprimir o arquivo de entrada ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     fid = fopen('apame_input.inp','w');
     fprintf(fid,'APAME input file\nVERSION 3.1\n\n\n');
-    % Par‚metros do escoamento
+    % Par√¢metros do escoamento
     fprintf(fid,'# FLOW PARAMETERS\n\n');
     fprintf(fid,'# Airspeed [m/s]\n');
     fprintf(fid,'AIRSPEED %f\n',v_ref(i));
@@ -38,7 +38,7 @@ for i = 1:cases
     fprintf(fid,'# Number of cases\n# Angle of attack [degrees]\n# sideslip angle [degrees]\n');
     fprintf(fid,'CASE_NUM 1\n')
     fprintf(fid,'%f\n0\n\n\n',aoa(i));
-    % Valores de referÍncia
+    % Valores de refer√™ncia
     fprintf(fid,'# REFERENCE VALUES\n\n');
     fprintf(fid,'# Wingspan [m]\n');
     fprintf(fid,'WINGSPAN %f\n',b);
@@ -48,7 +48,7 @@ for i = 1:cases
     fprintf(fid,'SURFACE %f\n',S);
     fprintf(fid,'# Reference point [m]\n');
     fprintf(fid,'ORIGIN *\n0 0 0\n\n\n');
-    % Par‚metros do solucionador
+    % Par√¢metros do solucionador
     fprintf(fid,'# SOLVER PARAMETERS\n\n');
     fprintf(fid,'# Singularity method:\n#  0-constant source/doublet\n#  1-constant doublet\n');
     fprintf(fid,'METHOD 0\n');
@@ -100,15 +100,15 @@ for i = 1:cases
     fprintf(fid,'%d %d %d %d %d %d %d\n',PANEL(end-sec_N+2:end,1:7)');
     fclose(fid);
 
-    % Fazer a simulaÁ„o ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-    % Nota: para fazer a simulaÁ„o, È necess·rio abrir o execut·vel e inserir o nome
-    % do arquivo a ser analisado sem a extens„o .inp. Devido ‡ natureza desse processo,
-    % È necess·rio o uso de um arquivo permanente contendo o nome do arquivo de input
-    % do apame. A omiss„o da exetns„o do arquivo permanente foi realizada com o 
+    % Fazer a simula√ß√£o ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+    % Nota: para fazer a simula√ß√£o, √© necess√°rio abrir o execut√°vel e inserir o nome
+    % do arquivo a ser analisado sem a extens√£o .inp. Devido √† natureza desse processo,
+    % √© necess√°rio o uso de um arquivo permanente contendo o nome do arquivo de input
+    % do apame. A omiss√£o da exetns√£o do arquivo permanente foi realizada com o 
     % intuito de identificar melhor esse arquivo.
     system('apame_win64.exe < apame_cmd_input');clc
 
-    % Apagar arquivos desnecess·rios
+    % Apagar arquivos desnecess√°rios
     delete('fort.2');
     delete('apame_input.res');
 
